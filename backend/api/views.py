@@ -7,4 +7,4 @@ class MessageAPIView(APIView):
     http_method_names = ('post',)
 
     def post(self, request: Request):
-        return Response({'message': 'Hello World'}, 200)
+        return Response({'message': 'Hello, world'}, 200)

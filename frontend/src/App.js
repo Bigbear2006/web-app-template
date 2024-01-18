@@ -5,9 +5,10 @@ import './App.css';
 
 function App() {
   let [msg, setMessage] = useState('')
+  let url = 'http://192.168.197.100/api/message/'
 
   useEffect(() => {
-    axios.post('http://192.168.197.100/api/message/')
+    axios.post(url)
         .then(rsp => setMessage(rsp.data.message))
   })
 
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{msg}</p>
+        <a href={url}>{msg}</a>
         <a
           className="App-link"
           href="https://reactjs.org"
