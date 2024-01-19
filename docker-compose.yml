@@ -6,20 +6,20 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - static:/app/static/
+      - static:/app/static
 
   frontend:
     build: frontend
     volumes:
-      - build:/app/build/
+      - build:/app/build
 
   nginx:
     build: nginx
     ports:
       - "80:80"
     volumes:
-      - build:/var/www/frontend/
-      - static:/app/static/
+      - build:/var/www/frontend
+      - static:/var/www/static
     depends_on:
       - backend
       - frontend
