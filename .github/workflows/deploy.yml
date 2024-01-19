@@ -5,13 +5,13 @@ on:
     branches: [main]
 
 jobs:
-  update:
-    runs-on: unbuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOS }}
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
@@ -20,4 +20,4 @@ jobs:
             git pull origin main
             git status
             docker-compose down
-            docker-compose up --build
+            docker-compose up --build -d
