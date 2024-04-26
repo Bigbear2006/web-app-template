@@ -30,9 +30,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'new-team.space']
+ALLOWED_HOSTS = ['localhost']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://new-team.space', 'https://new-team.space']
+CSRF_TRUSTED_ORIGINS = ['http://localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'django_cleanup',
     'drf_yasg',
 ]
 
@@ -161,6 +162,6 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }

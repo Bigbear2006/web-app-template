@@ -13,10 +13,10 @@ services:
     depends_on:
       - db
 
-#  frontend:
-#    build: frontend
-#    volumes:
-#      - build:/app/build
+  frontend:
+    build: frontend
+    volumes:
+      - build:/app/build
 
   nginx:
     build: nginx
@@ -28,7 +28,7 @@ services:
       - ./media:/var/www/media
     depends_on:
       - backend
-#      - frontend
+      - frontend
 
   db:
     image: postgres:latest

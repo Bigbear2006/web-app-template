@@ -4,7 +4,5 @@ from rest_framework.response import Response
 
 
 class MessageAPIView(APIView):
-    http_method_names = ('post',)
-
-    def post(self, request: Request):
+    def get(self, request: Request):
         return Response({'message': 'Hello, world'}, 200)
